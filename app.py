@@ -17,11 +17,15 @@ def helloName(name=None):
 with open('parks.json', 'r') as f:
     parks = json.load(f)
 
+@app.route('/parks')
+def parksList():
+    return render_template("parksDisplay.html", parks = parks)
 
+'''
 @app.route('/parks')
 def parksList():
     return render_template("parksTemplate.html", parks = parks)
-
+'''
 
 if __name__ == "__main__":
     app.run()
