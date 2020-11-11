@@ -49,45 +49,21 @@
               </form>
             </div>
           </nav>
-
-        <ul>
-            {% for park in parks %}
-                <li>{{ park['name'] }}</li>
-            {% endfor %}  
-        </ul>
+        
         
         <div class="container">
             <div class="row">
+              {% for park in parks %}
               <div class="col-sm">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src= "{{parks[1]['img']}}" alt="Card image cap">
+                    <img class="card-img-top" src= "{{park['img']}}" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">{{parks[1]['name']}}, {{parks[1]['loc']}}</h5>
-                      <p class="card-text">{{parks[1]['desc']}}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src= "{{parks[2]['img']}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{parks[2]['name']}}, {{parks[2]['loc']}}</h5>
-                        <p class="card-text">{{parks[2]['desc']}}</p>
-                    </div>
-                </div>
-            </div>
-
-              <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src= "{{parks[0]['img']}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{parks[0]['name']}}, {{parks[0]['loc']}}</h5>
-                        <p class="card-text">{{parks[0]['desc']}}</p>
+                      <h5 class="card-title">{{park['name']}}, {{park['loc']}}</h5>
+                      <p class="card-text">{{park['desc']}}</p>
                     </div>
                 </div>
               </div>
-
+              {% endfor %}
             </div>
         </div>
 
