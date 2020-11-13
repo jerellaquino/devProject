@@ -19,7 +19,7 @@ with open('parks.json', 'r') as f:
 
 @app.route('/parks')
 def parksList():
-    return render_template("parksDisplay.html", parks = parks)
+    return render_template("parks.html", parks = parks)
 
 if __name__ == "__main__":
     app.run()
