@@ -51,20 +51,20 @@
           </nav>
         
         
-        <div class="container">
-            <div class="row">
-              {% for park in parks %}
+        <div class="container"> 
+          <div class="row">
+            {% for park in parks %}
               <div class="col-sm">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src= "{{park['img']}}" alt="Card image cap">
+                    <img class="card-img-top" src= "{{ park.images[0].url }}" alt="image of {{ park.name }}">
                     <div class="card-body">
-                      <h5 class="card-title">{{park['name']}}, {{park['loc']}}</h5>
-                      <p class="card-text">{{park['desc']}}</p>
+                      <h5 class="card-title">{{ park.name}}, {{ park.states }}</h5>
+                      <p class="card-text">{{ park.description }}</p>
                     </div>
                 </div>
-              </div>
-              {% endfor %}
-            </div>
+              </div>  
+            {% endfor %}  
+          </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-

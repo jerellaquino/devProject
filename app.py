@@ -1,5 +1,6 @@
 import json
 from flask import Flask, render_template
+import requests 
 
 app = Flask(__name__)
 
@@ -17,8 +18,20 @@ def helloName(name=None):
 with open('parks.json', 'r') as f:
     parks = json.load(f)
 
+'''
 @app.route('/parks')
-def parksList():
+def parksPage():
+    return render_template("parks.html", parks = parks)
+'''
+
+@app.route('/parks')
+def nationalParksPage():
+    base_url = 'https://developer.nps.gov/api/v1/parks?api_key=oqa2UTZlkEAwogH10IBj7Rt687267NUWoSqoNQLC&limit=10'
+
+    r = requests.get(base_url)
+
+    parks = r.json()['data']
+
     return render_template("parks.html", parks = parks)
 
 if __name__ == "__main__":
